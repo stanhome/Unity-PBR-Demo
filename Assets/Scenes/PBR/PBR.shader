@@ -5,7 +5,7 @@ Properties
     //_MainTex ("Texture", 2D) = "white" {}
 	_Albedo ("Albedo", color) = (1, 1, 1, 1)
 	_Metallic ("Metallic", Range(0, 1)) = 0
-	_Roughness ("Roughness", Range(0.05, 1)) = 0.05
+	_Roughness ("Roughness", Range(0.01, 1)) = 0.05
 	_AO ("AO", Range(0, 1)) = 1
 	[Header(Lighting)]
 	_PointLightPos("PointLightPos", vector) = (0, 0, 0, 1)
@@ -69,7 +69,7 @@ float distributionGGX(float3 n, float3 h, float roughness)
 	float denominator = (NdotH2 * (a2 - 1.0) + 1.0);
 	denominator = PI * denominator * denominator;
 
-	return numerator / max(denominator, 0.001);
+	return numerator / denominator;
 }
 
 
